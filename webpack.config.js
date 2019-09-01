@@ -10,10 +10,19 @@ module.exports = {
     resolve: {
         extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
     },
-
     module: {
-        loaders: [
-            { test: /\.tsx?$/, loader: "ts-loader" }
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true
+            }
+          }
         ]
-    }
+      }
+    ]
+    }    
 };
